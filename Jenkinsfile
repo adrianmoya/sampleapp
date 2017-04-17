@@ -1,9 +1,19 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'maven:3.5-alpine'
+    }
+    
+  }
   stages {
     stage('Welcome') {
       steps {
         echo 'Hello Jenkins!'
+      }
+    }
+    stage('Unit tests') {
+      steps {
+        sh 'mvn test'
       }
     }
   }
