@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class GreeterTest {
 
@@ -15,11 +16,16 @@ public class GreeterTest {
 	}
 	
 	@Test
-	public void itReturnsAGretingMessage(){
+	public void itReturnsAGreetingMessage(){
 
 		//When
 		String greeting = greeter.getGreeting(); 
 		//Then
 		assertEquals("Welcome to the DevOps Training", greeting);
+	}
+	
+	@Test
+	public void itHasAFailingTest(){
+		fail("What the hell happened?");
 	}
 }
