@@ -24,6 +24,7 @@ public class GreeterTest {
 		assertEquals("Welcome to the DevOps Training", greeting);
 	}
 	
+	//A failing test
 	@Test
 	public void itHasAFailingTest(){
 		fail("What the hell happened?");
