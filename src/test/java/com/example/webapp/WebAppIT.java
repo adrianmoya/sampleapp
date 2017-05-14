@@ -5,16 +5,18 @@ import org.apache.http.client.fluent.Request;
 import org.apache.http.client.fluent.Response;
 import org.apache.http.util.EntityUtils;
 import org.junit.After;
-import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static spark.Spark.stop;
 
 public class WebAppIT {
 
-	@Before
-	public void startServer(){
+	@BeforeClass
+	public static void startServer(){
 		WebApp.main();
 	}
 	
@@ -27,6 +29,12 @@ public class WebAppIT {
 		//Then
 		assertTrue(httpResponse.getStatusLine().getStatusCode()==200);
 		assertTrue(content.contains("Welcome to the DevOps Training"));
+	}
+	
+	//A failing test
+	@Test
+	public void itHasAFailingTest(){
+		fail("What the hell happened in the Integration Test?");
 	}
 	
 	@After

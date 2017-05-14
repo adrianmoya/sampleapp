@@ -13,7 +13,9 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		
+		<skipTests>false</skipTests>
+		<skipITs>${skipTests}</skipITs>
+		<skipUTs>${skipTests}</skipUTs>
 	</properties>
 
 	<dependencies>
@@ -58,6 +60,10 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<version>2.20</version>
+				<configuration>
+					<skipTests>${skipTests}</skipTests>
+					<skipITs>${skipITs}</skipITs>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
@@ -73,6 +79,7 @@
 				<version>2.20</version>
 				<configuration>
 					<testFailureIgnore>true</testFailureIgnore>
+					<skipTests>${skipUTs}</skipTests>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -92,7 +99,7 @@
 						<transformer
 							implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 							<mainClass>com.example.webapp.WebApp</mainClass>
-						</transformer>						
+						</transformer>
 					</transformers>
 					<createDependencyReducedPom>false</createDependencyReducedPom>
 				</configuration>
