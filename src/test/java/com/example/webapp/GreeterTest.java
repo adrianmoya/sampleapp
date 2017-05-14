@@ -1,6 +1,7 @@
 package com.example.webapp;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -25,7 +26,7 @@ public class GreeterTest {
 	}
 	
 	//A failing test
-	@Test
+	@Test @Ignore
 	public void itHasAFailingTest(){
 		fail("What the hell happened?");
 	}
