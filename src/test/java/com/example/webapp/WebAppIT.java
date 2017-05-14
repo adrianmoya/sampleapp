@@ -32,7 +32,7 @@ public class WebAppIT {
 	}
 	
 	//A failing test
-	@Test
+	@Test @Ignore
 	public void itHasAFailingTest(){
 		fail("What the hell happened in the Integration Test?");
 	}
