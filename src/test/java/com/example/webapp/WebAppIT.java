@@ -4,12 +4,20 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.client.fluent.Response;
 import org.apache.http.util.EntityUtils;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
+import static spark.Spark.stop;
 
 public class WebAppIT {
 
+	@Before
+	public void startServer(){
+		WebApp.main();
+	}
+	
 	@Test
 	public void itShowsTheGreetingMessage() throws Exception{
 		//When
@@ -19,6 +27,11 @@ public class WebAppIT {
 		//Then
 		assertTrue(httpResponse.getStatusLine().getStatusCode()==200);
 		assertTrue(content.contains("Welcome to the DevOps Training"));
+	}
+	
+	@After
+	public void stopServer(){
+		stop();
 	}
 	
 }
