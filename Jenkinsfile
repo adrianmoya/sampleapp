@@ -16,9 +16,14 @@ pipeline {
         sh 'mvn test'
       }
     }
-    stage('Report') {
+    stage('Report Unit Tests') {
       steps {
         junit 'target/surefire-reports/*.xml'
+      }
+    }
+    stage('Integration Tests') {
+      steps {
+        sh 'mvn clean verify -DskipUTs'
       }
     }
   }
