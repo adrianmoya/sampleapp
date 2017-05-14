@@ -61,6 +61,7 @@
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<version>2.20</version>
 				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
 					<skipTests>${skipTests}</skipTests>
 					<skipITs>${skipITs}</skipITs>
 				</configuration>
