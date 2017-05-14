@@ -16,7 +16,7 @@ pipeline {
         sh 'mvn test'
       }
     }
-    stage('Report Unit Tests') {
+    stage('Report UTs') {
       steps {
         junit 'target/surefire-reports/*.xml'
       }
@@ -24,6 +24,11 @@ pipeline {
     stage('Integration Tests') {
       steps {
         sh 'mvn clean verify -DskipUTs'
+      }
+    }
+    stage('Report ITs') {
+      steps {
+        junit 'target/failsafe-reports/*.xml'
       }
     }
   }
