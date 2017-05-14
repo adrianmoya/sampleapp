@@ -6,9 +6,9 @@ pipeline {
     
   }
   stages {
-    stage('Welcome') {
+    stage('SCM') {
       steps {
-        echo 'Hello Jenkins again!'
+        git(url: 'https://github.com/adrianmoya/sampleapp', branch: 'master')
       }
     }
     stage('Unit tests') {
