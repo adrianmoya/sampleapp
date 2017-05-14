@@ -23,5 +23,11 @@ pipeline {
         junit 'target/failsafe-reports/*.xml'
       }
     }
+    stage('Quality') {
+      steps {
+        sh 'mvn checkstyle:checkstyle findbugs:findbugs pmd:pmd'
+        junit 'target/checkstyle-result.xml,target/findbugsXml.xml, target/pmd.xml'
+      }
+    }
   }
 }
