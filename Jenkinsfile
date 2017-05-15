@@ -26,7 +26,9 @@ pipeline {
     stage('Quality') {
       steps {
         sh 'mvn checkstyle:checkstyle findbugs:findbugs pmd:pmd'
-        junit 'target/checkstyle-result.xml,target/findbugsXml.xml, target/pmd.xml'
+        checkstyle(pattern: 'target/checkstyle-result.xml')
+        findbugs(pattern: 'target/findbugsXml.xml')
+        pmd(pattern: 'target/pmd.xml')
       }
     }
   }
