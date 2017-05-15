@@ -31,5 +31,11 @@ pipeline {
         pmd(pattern: 'target/pmd.xml')
       }
     }
+    stage('Publish Artifact') {
+      steps {
+        sh 'mvn package'
+        archiveArtifacts 'target/webapp*.jar'
+      }
+    }
   }
 }
