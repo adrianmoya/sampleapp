@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    docker {
-      image 'maven:3.5-alpine'
-    }
-    
-  }
+  agent any
   stages {
     stage('SCM') {
       steps {
