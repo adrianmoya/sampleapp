@@ -27,12 +27,18 @@ pipeline {
         junit 'target/failsafe-reports/*.xml'
       }
     }
-    stage('Analisis de código') {
+    stage('Analisis de cÃ³digo') {
       steps {
         bat 'mvn -DskipTests checkstyle:checkstyle pmd:pmd findbugs:findbugs'
         checkstyle(pattern: 'target/checkstyle-result.xml')
         pmd(pattern: 'target/pmd.xml')
         findbugs(pattern: 'target/findbugsXml.xml')
+      }
+    }
+    stage('Publicar artefacto') {
+      steps {
+        bat 'mvn clean package -DskipTests'
+        archiveArtifacts 'target/webapp*.jar'
       }
     }
   }
