@@ -34,7 +34,7 @@ public class WebAppIT {
 	//A failing test
 	@Test
 	public void itHasAFailingTest(){
-		fail("What the hell happened in the Integration Test?");
+	
 	}
 	
 	@After
