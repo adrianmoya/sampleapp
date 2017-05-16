@@ -18,6 +18,7 @@ pipeline {
     stage('Pruebas Unitarias') {
       steps {
         bat 'mvn clean test'
+        junit 'target/surefire-reports/*.xml'
       }
     }
   }
