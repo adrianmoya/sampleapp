@@ -21,5 +21,10 @@ pipeline {
         junit 'target/surefire-reports/*.xml'
       }
     }
+    stage('Integration Tests') {
+      steps {
+        sh 'mvn clean verify -DskipUTs'
+      }
+    }
   }
 }
