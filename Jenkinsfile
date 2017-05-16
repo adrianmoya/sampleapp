@@ -17,7 +17,7 @@ pipeline {
     }
     stage('Pruebas Unitarias') {
       steps {
-        sh 'mvn clean test'
+        bat 'mvn clean test'
       }
     }
   }
