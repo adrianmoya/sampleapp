@@ -23,7 +23,7 @@ pipeline {
     }
     stage('Integration Tests') {
       steps {
-        sh 'mvn clean verify -DskipUTs'
+        bat 'mvn clean verify -DskipUTs'
         junit 'target/failsafe-reports/*.xml'
       }
     }
